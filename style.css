@@ -129,14 +129,14 @@ body {
     letter-spacing: 2px;
 }
 
-.nav-submenu .submenu {
+/* .nav-submenu .submenu {
     display: none;
 }
 
 .nav-submenu:focus-within .submenu,
 .nav-submenu:hover .submenu {
     display: block;
-}
+} */
 
 .display-container {
     flex: 1;

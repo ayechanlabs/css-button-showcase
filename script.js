@@ -18,6 +18,22 @@ const buttonData = {
     "slide-center-top": {
         htmlPath: "./components/slide-effect/slide-center-top.html",
         cssPath: "./components/slide-effect/slide-center-top.css"
+    },
+    "slide-left-top": {
+        htmlPath: "./components/slide-effect/slide-left-top.html",
+        cssPath: "./components/slide-effect/slide-left-top.css"
+    },
+    "slide-right-top": {
+        htmlPath: "./components/slide-effect/slide-right-top.html",
+        cssPath: "./components/slide-effect/slide-right-top.css"
+    },
+    "slide-left-bottom": {
+        htmlPath: "./components/slide-effect/slide-left-bottom.html",
+        cssPath: "./components/slide-effect/slide-left-bottom.css"
+    },
+    "slide-right-bottom": {
+        htmlPath: "./components/slide-effect/slide-right-bottom.html",
+        cssPath: "./components/slide-effect/slide-right-bottom.css"
     }
 };
 

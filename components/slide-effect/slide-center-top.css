@@ -36,7 +36,7 @@
     transform: translateY(-100%);
     /* x-offset (left, center, right), y-offset (top, center, bottom) */
     transform-origin: center top;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s linear;
 }
 
 #button-space #hover-effect:hover::before {
