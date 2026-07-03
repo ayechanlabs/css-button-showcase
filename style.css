@@ -32,6 +32,7 @@ body {
     color: var(--text-main);
 
     display: flex;
+    flex-wrap: wrap;
 }
 
 .sidebar {
@@ -41,6 +42,9 @@ body {
 
     display: flex;
     flex-direction: column;
+
+    /* it allow the sidebar to grow to full-width on mobile */
+    flex-grow: 1;
 
     /* 
     1 rem = 16px
@@ -139,12 +143,21 @@ body {
 } */
 
 .display-container {
+    min-width: 320px;
+
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 2rem; /* 32px */
 
     padding: 2rem; /* 32px */
+}
+
+.display-container header h1,
+.display-container header p {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .display-container #showcase-container {
@@ -207,6 +220,10 @@ body {
 
     margin: 0;
     padding-top: 1.5rem !important; /* 24px */
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .code-snippet-card #copy-btn {
@@ -255,5 +272,63 @@ body {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+.code-snippet-card pre[class*="language-"],
+.code-snippet-card code[class*="language-"] {
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+    word-wrap: break-word !important;
+    overflow-x: hidden !important;
+}
+
+@media screen and (max-width: 900px) {
+    .display-container #showcase-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+
+    .sidebar {
+        width: 100% !important;
+        max-width: 100%;
+
+        padding: 1.5rem 1rem;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 1rem;
+    }
+
+    .display-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0 !important;
+
+        padding: 1rem;
+    }
+
+    .display-container header h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .display-container header p {
+        font-size: 0.95rem;
+    }
+
+    .preview-card,
+    .code-snippet-card {
+        max-width: 100%;
+        width: 100% !important;
+        min-height: auto;
+        
+        padding: 1.25rem;
     }
 }

@@ -49,23 +49,10 @@ async function updateShowcase(effectKey) {
         displayHeader.classList.remove('fade-in-down');
         showcaseContainer.classList.remove('fade-in-up');
 
-        // const [htmlResponse, cssResponse] = await Promise.all([
-        //     fetch(data.htmlPath),
-        //     fetch(data.cssPath)
-        // ]);
-
         const response = await fetch(data.path);
         const combinedCode = await response.text();
 
-
-        // const htmlCode = await htmlResponse.text();
-        // const cssCode = await cssResponse.text();
-
         buttonSpace.innerHTML = combinedCode;
-        // buttonSpace.innerHTML = htmlCode;
-        // styleTag.innerHTML = cssCode;
-
-        // codeBlock.textContent = `${htmlCode}\n\n/* CSS Code */\n${cssCode}`;
 
         codeBlock.textContent = combinedCode;
         Prism.highlightElement(codeBlock);
