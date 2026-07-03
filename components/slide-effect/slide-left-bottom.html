@@ -1,1 +1,46 @@
 <button type="button" id="hover-effect" class="btn-hover">Hover Me</button>
+
+<style>
+    .btn-hover {
+        color: #000000;
+        background-color: transparent;
+        font-size: 25px;
+        cursor: pointer;
+
+        border: 2px solid #000000;
+
+        padding: 20px 40px;
+
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+
+        transition: color 0.5s linear;
+    }
+
+    .btn-hover:hover {
+        color: #ffffff;
+    }
+
+    .btn-hover::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: steelblue;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        z-index: -1;
+    }
+
+    #hover-effect::before {
+        transform: translate(-100%, 100%);
+        transition: transform 0.5s linear;
+    }
+
+    #hover-effect:hover::before {
+        transform: rotate(0);
+    }
+</style>

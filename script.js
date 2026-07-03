@@ -1,39 +1,30 @@
 const buttonData = {
     "effect-fade": {
-        htmlPath: "./components/fade-effect/fade-effect.html",
-        cssPath: "./components/fade-effect/fade-effect.css"
+        path: "./components/fade-effect/fade-effect.html"
     },
     "slide-center-left": {
-        htmlPath: "./components/slide-effect/slide-center-left.html",
-        cssPath: "./components/slide-effect/slide-center-left.css"
+        path: "./components/slide-effect/slide-center-left.html"
     },
     "slide-center-right": {
-        htmlPath: "./components/slide-effect/slide-center-right.html",
-        cssPath: "./components/slide-effect/slide-center-right.css"
+        path: "./components/slide-effect/slide-center-right.html"
     },
     "slide-center-bottom": {
-        htmlPath: "./components/slide-effect/slide-center-bottom.html",
-        cssPath: "./components/slide-effect/slide-center-bottom.css"
+        path: "./components/slide-effect/slide-center-bottom.html"
     },
     "slide-center-top": {
-        htmlPath: "./components/slide-effect/slide-center-top.html",
-        cssPath: "./components/slide-effect/slide-center-top.css"
+        path: "./components/slide-effect/slide-center-top.html"
     },
     "slide-left-top": {
-        htmlPath: "./components/slide-effect/slide-left-top.html",
-        cssPath: "./components/slide-effect/slide-left-top.css"
+        path: "./components/slide-effect/slide-left-top.html"
     },
     "slide-right-top": {
-        htmlPath: "./components/slide-effect/slide-right-top.html",
-        cssPath: "./components/slide-effect/slide-right-top.css"
+        path: "./components/slide-effect/slide-right-top.html"
     },
     "slide-left-bottom": {
-        htmlPath: "./components/slide-effect/slide-left-bottom.html",
-        cssPath: "./components/slide-effect/slide-left-bottom.css"
+        path: "./components/slide-effect/slide-left-bottom.html"
     },
     "slide-right-bottom": {
-        htmlPath: "./components/slide-effect/slide-right-bottom.html",
-        cssPath: "./components/slide-effect/slide-right-bottom.css"
+        path: "./components/slide-effect/slide-right-bottom.html"
     }
 };
 
@@ -58,19 +49,25 @@ async function updateShowcase(effectKey) {
         displayHeader.classList.remove('fade-in-down');
         showcaseContainer.classList.remove('fade-in-up');
 
-        const [htmlResponse, cssResponse] = await Promise.all([
-            fetch(data.htmlPath),
-            fetch(data.cssPath)
-        ]);
+        // const [htmlResponse, cssResponse] = await Promise.all([
+        //     fetch(data.htmlPath),
+        //     fetch(data.cssPath)
+        // ]);
 
-        const htmlCode = await htmlResponse.text();
-        const cssCode = await cssResponse.text();
+        const response = await fetch(data.path);
+        const combinedCode = await response.text();
 
-        buttonSpace.innerHTML = htmlCode;
-        styleTag.innerHTML = cssCode;
 
-        codeBlock.textContent = `${htmlCode}\n\n/* CSS Code */\n${cssCode}`;
+        // const htmlCode = await htmlResponse.text();
+        // const cssCode = await cssResponse.text();
 
+        buttonSpace.innerHTML = combinedCode;
+        // buttonSpace.innerHTML = htmlCode;
+        // styleTag.innerHTML = cssCode;
+
+        // codeBlock.textContent = `${htmlCode}\n\n/* CSS Code */\n${cssCode}`;
+
+        codeBlock.textContent = combinedCode;
         Prism.highlightElement(codeBlock);
 
         void displayHeader.offsetWidth;
