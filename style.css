@@ -43,9 +43,6 @@ body {
     display: flex;
     flex-direction: column;
 
-    /* it allow the sidebar to grow to full-width on mobile */
-    flex-grow: 1;
-
     /* 
     1 rem = 16px
         top-bottom left-right
@@ -283,13 +280,13 @@ body {
     overflow-x: hidden !important;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1280px) {
     .display-container #showcase-container {
         grid-template-columns: 1fr;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     body {
         flex-direction: column;
         overflow-x: hidden;
@@ -298,6 +295,7 @@ body {
     .sidebar {
         width: 100% !important;
         max-width: 100%;
+        flex-grow: 1;
 
         padding: 1.5rem 1rem;
     }
