@@ -330,4 +330,8 @@ body {
         
         padding: 1.25rem;
     }
+
+    .preview-card h3 {
+        margin-bottom: 20px;
+    }
 }

@@ -117,4 +117,4 @@ copyButton.addEventListener('click', () => {
     });
 });
 
-updateShowcase('glow-effect-2');
+updateShowcase('effect-fade');
