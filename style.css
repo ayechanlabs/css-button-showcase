@@ -176,6 +176,7 @@ body {
 
 .preview-card {
     background: var(--card-bg);
+    color: var(--text-main);
 
     display: flex;
     flex-direction: column;

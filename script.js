@@ -2,6 +2,9 @@ const buttonData = {
     "effect-fade": {
         path: "./components/fade-effect/fade-effect.html"
     },
+    "glow-effect-1": {
+        path: "./components/glow-effect/glow-effect-1.html"
+    },
     "slide-center-left": {
         path: "./components/slide-effect/slide-center-left.html"
     },
@@ -60,6 +63,16 @@ async function updateShowcase(effectKey) {
     try {
         // displayHeader.classList.remove('fade-in-down');
         showcaseContainer.classList.remove('fade-in-up');
+
+        const previewCardColor = document.querySelector('.preview-card');
+        if (effectKey.includes('glow')) {
+            previewCardColor.style.backgroundColor = "#000000";
+            previewCardColor.style.color = "#ffffff";
+        }
+        else {
+            previewCardColor.style.backgroundColor = "";
+            previewCardColor.style.color = "";
+        }
 
         const response = await fetch(data.path);
         const combinedCode = await response.text();
