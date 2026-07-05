@@ -5,6 +5,9 @@ const buttonData = {
     "glow-effect-1": {
         path: "./components/glow-effect/glow-effect-1.html"
     },
+    "glow-effect-2": {
+        path: "./components/glow-effect/glow-effect-2.html"
+    },
     "slide-center-left": {
         path: "./components/slide-effect/slide-center-left.html"
     },
@@ -66,7 +69,7 @@ async function updateShowcase(effectKey) {
 
         const previewCardColor = document.querySelector('.preview-card');
         if (effectKey.includes('glow')) {
-            previewCardColor.style.backgroundColor = "#000000";
+            previewCardColor.style.backgroundColor = "#16161a";
             previewCardColor.style.color = "#ffffff";
         }
         else {
@@ -114,4 +117,4 @@ copyButton.addEventListener('click', () => {
     });
 });
 
-updateShowcase('effect-fade');
+updateShowcase('glow-effect-2');
