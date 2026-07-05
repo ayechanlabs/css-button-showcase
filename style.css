@@ -239,10 +239,10 @@ body {
     right: 10px;
 }
 
-.fade-in-down {
+/* .fade-in-down {
     animation: fadeDown 0.5s linear forwards;
-}
-
+} */
+/* 
 @keyframes fadeDown {
     0% {
         opacity: 0;
@@ -252,7 +252,7 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}
+} */
 
 .fade-in-up {
     animation-name: fadeUp;

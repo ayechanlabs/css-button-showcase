@@ -25,6 +25,18 @@ const buttonData = {
     },
     "slide-right-bottom": {
         path: "./components/slide-effect/slide-right-bottom.html"
+    },
+    "rotate-left-bottom-n90": {
+        path: "./components/rotate-effect/rotate-left-bottom-n90.html"
+    },
+    "rotate-left-top-n90": {
+        path: "./components/rotate-effect/rotate-left-top-n90.html"
+    },
+    "rotate-right-bottom-p90": {
+        path: "./components/rotate-effect/rotate-right-bottom-p90.html"
+    },
+    "rotate-right-top-p90": {
+        path: "./components/rotate-effect/rotate-right-top-p90.html"
     }
 };
 
@@ -46,7 +58,7 @@ async function updateShowcase(effectKey) {
     if (!data) return;
 
     try {
-        displayHeader.classList.remove('fade-in-down');
+        // displayHeader.classList.remove('fade-in-down');
         showcaseContainer.classList.remove('fade-in-up');
 
         const response = await fetch(data.path);
@@ -60,7 +72,7 @@ async function updateShowcase(effectKey) {
         void displayHeader.offsetWidth;
         void showcaseContainer.offsetWidth;
 
-        displayHeader.classList.add('fade-in-down');
+        // displayHeader.classList.add('fade-in-down');
         showcaseContainer.classList.add('fade-in-up');
     } 
     catch (error) {
