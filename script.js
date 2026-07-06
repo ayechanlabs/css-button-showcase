@@ -1,13 +1,49 @@
 const buttonData = {
+    "border-effect": {
+        path: "./components/border-effect/border-effect.html"
+    },
+
     "effect-fade": {
         path: "./components/fade-effect/fade-effect.html"
     },
+
     "glow-effect-1": {
         path: "./components/glow-effect/glow-effect-1.html"
     },
     "glow-effect-2": {
         path: "./components/glow-effect/glow-effect-2.html"
     },
+
+     "rotate-left-bottom-n90": {
+        path: "./components/rotate-effect/rotate-left-bottom-n90.html"
+    },
+    "rotate-left-top-n90": {
+        path: "./components/rotate-effect/rotate-left-top-n90.html"
+    },
+    "rotate-right-bottom-p90": {
+        path: "./components/rotate-effect/rotate-right-bottom-p90.html"
+    },
+    "rotate-right-top-p90": {
+        path: "./components/rotate-effect/rotate-right-top-p90.html"
+    },
+
+    "scale-effect-1": {
+        path: "./components/scale-effect/scale-effect-1.html"
+    },
+    "scale-effect-2": {
+        path: "./components/scale-effect/scale-effect-2.html"
+    },
+    "scale-effect-3": {
+        path: "./components/scale-effect/scale-effect-3.html"
+    },
+
+    "shift-effect-1": {
+        path: "./components/shift-effect/shift-effect-1.html"
+    },
+    "shift-effect-2": {
+        path: "./components/shift-effect/shift-effect-2.html"
+    },
+
     "slide-center-left": {
         path: "./components/slide-effect/slide-center-left.html"
     },
@@ -32,18 +68,7 @@ const buttonData = {
     "slide-right-bottom": {
         path: "./components/slide-effect/slide-right-bottom.html"
     },
-    "rotate-left-bottom-n90": {
-        path: "./components/rotate-effect/rotate-left-bottom-n90.html"
-    },
-    "rotate-left-top-n90": {
-        path: "./components/rotate-effect/rotate-left-top-n90.html"
-    },
-    "rotate-right-bottom-p90": {
-        path: "./components/rotate-effect/rotate-right-bottom-p90.html"
-    },
-    "rotate-right-top-p90": {
-        path: "./components/rotate-effect/rotate-right-top-p90.html"
-    }
+   
 };
 
 const styleTag = document.createElement('style');
@@ -56,7 +81,31 @@ copyButton = document.getElementById('copy-btn'),
 displayHeader = document.querySelector('.display-container header'),
 showcaseContainer = document.getElementById('showcase-container');
 
-console.log(navButtons);
+const subMenus = document.querySelectorAll('.nav-submenu');
+
+subMenus.forEach (menu => {
+    const button = menu.querySelector('.nav-btn');
+    const submenu = menu.querySelector('.submenu');
+
+    button.addEventListener('click', () => {
+
+        subMenus.forEach(item => {
+            if (item !== menu) {
+                item.classList.remove("open");
+                item.querySelector(".submenu").style.maxHeight = null;
+            }
+        });
+
+        if (menu.classList.contains("open")) {
+            menu.classList.remove("open");
+            submenu.style.maxHeight = null;
+        }
+        else {
+            menu.classList.add("open");
+            submenu.style.maxHeight = submenu.scrollHeight + "px";
+        }
+    });
+});
 
 async function updateShowcase(effectKey) {
     const data = buttonData[effectKey];
@@ -102,8 +151,10 @@ navButtons.forEach(button => {
         navButtons.forEach(btn => btn.classList.remove('active'));
         e.target.classList.add('active');
 
-        const targetEffect = e.target.getAttribute('data-target');
-        updateShowcase(targetEffect);
+        const targetEffect = e.target.dataset.target;
+        if (targetEffect) {
+            updateShowcase(targetEffect);
+        }
     });
 });
 
@@ -117,4 +168,4 @@ copyButton.addEventListener('click', () => {
     });
 });
 
-updateShowcase('effect-fade');
+updateShowcase('border-effect');

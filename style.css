@@ -94,11 +94,34 @@ body {
     padding-left: 1.5rem; /* 24px */
 }
 
-.submenu {
+.nav-submenu.open .submenu {
+    max-height: 500px;
+}
+
+.nav-submenu .submenu {
+    max-height: 0;
     list-style: none;
 
     padding-left: 0.5rem;
     margin-bottom: 0.5rem;
+
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.nav-submenu > .nav-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-submenu > .nav-btn::active {
+    content: "▶";
+    transition: transform .3s ease;
+}
+
+.nav-submenu.open > .nav-btn::after {
+    transform: rotate(90deg);
 }
 
 .sub-nav-btn {
