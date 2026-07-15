@@ -115,8 +115,12 @@ body {
     align-items: center;
 }
 
-.nav-submenu > .nav-btn::active {
+.nav-submenu > .nav-btn::after {
     content: "▶";
+    font-size: 0.75rem;
+
+    display: inline-block;
+
     transition: transform .3s ease;
 }
 
@@ -356,5 +360,10 @@ body {
 
     .preview-card h3 {
         margin-bottom: 20px;
+    }
+
+    #button-space * {
+        max-width: 100%;
+        box-sizing: border-box;
     }
 }

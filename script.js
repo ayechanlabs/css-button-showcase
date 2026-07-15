@@ -1,4 +1,8 @@
 const buttonData = {
+    "3d-effect": {
+        path: "./components/3d-effect/3d-effect.html"
+    },
+
     "border-effect": {
         path: "./components/border-effect/border-effect.html"
     },
@@ -67,8 +71,7 @@ const buttonData = {
     },
     "slide-right-bottom": {
         path: "./components/slide-effect/slide-right-bottom.html"
-    },
-   
+    }
 };
 
 const styleTag = document.createElement('style');
@@ -168,4 +171,4 @@ copyButton.addEventListener('click', () => {
     });
 });
 
-updateShowcase('border-effect');
+updateShowcase('3d-effect');
